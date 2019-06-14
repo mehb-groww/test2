@@ -37,23 +37,23 @@ After a couple of minutes, both java and python web applications should be up an
 
 ## Post-setup
 
-First, Navigate yourself to __app.hackteeth.com__
+First, Navigate yourself to __app.hackteeth.com__</br>
 Login with the following user:
 ```
 ardy01
 ardy123
 ```
 
-Enjoy yourself on the journey of discovering vulnerabilites
-There are a lots of vulnerabilites by default settings, please discover and try to exploit them, have fun ;)
+Enjoy yourself on the journey of discovering vulnerabilites,<br/>
+There are a lots of vulnerabilites by default settings, please discover and try to exploit them, have fun ;)<br/>
 
-There is also extra API server written in Python, which is implemented as part of the main Java web application:
+There is also extra API server written in Python, which is implemented as part of the main Java web application:<br/>
 __api.hackteeth.com__
 
 ### Extra: Vulnerabilites settings:
 
-Navigate yourself to __app.hackteeth.com/setting__
-There are a lot of configuration options allow you to set the different settings on each vulnerabilites, the setting will reset the database and re-new the session so you will have to login again.
+Navigate yourself to __app.hackteeth.com/setting__ <br/>
+There are a lot of configuration options that allow you to set the different settings on each vulnerabilites, the setting will reset the database and re-new the session so you will have to login again.
 
 
 
