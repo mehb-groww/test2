@@ -1,5 +1,8 @@
 # Hack My Teeth - A deliberately vulnerable java/python application
 
+### __DO NOT RUN THIS ON ANY PUBLICLY AVAILABLE SERVER__
+
+
 As the title says, this repository contains source codes for dockerized vulnerable java web and python application.
 The dockerized system consists of:
  - Java Spring Application
@@ -14,8 +17,6 @@ Docker CE > 18.06
 ```
 
 ## How to run
-
-### __DO NOT RUN THIS ON ANY PUBLICLY AVAILABLE SERVER__
 
 To run the whole thing,
 Please make sure that __port 80 is available on your machine__ and __Docker (CE version > 18.06) are installed___\
