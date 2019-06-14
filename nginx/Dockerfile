@@ -1,6 +1,8 @@
-FROM nginx:alpine
+FROM nginx:latest
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY default.conf /etc/nginx/conf.d
+RUN apt-get -y update
+RUN apt-get -y install net-tools
+RUN apt-get -y install tcpdump
+
 EXPOSE 80 443
 

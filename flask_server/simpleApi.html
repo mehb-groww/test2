@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+</head>
+
+<body>
+  <form id="formoid" action="/simpleApi" name="myForm" title="" method="post">
+    <div>
+      <label class="title">Name</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label class="title">Phone</label>
+      <input type="text" id="phone" name="phone">
+    </div>
+    <div>
+      <label class="title">Salt</label>
+      <input type="text" id="salt" name="salt">
+      <p id="output"></p>
+    </div>
+    <div>
+      <input type="button" value="Submit" onclick="submitform()">
+    </div>
+  </form>
+  <script type='text/javascript'>
+
+    /* attach a submit handler to the form */
+    function submitform() {
+      $.ajax({
+        type: "POST",
+        url: "/simpleApi",
+        data: JSON.stringify({
+          "name": $("#name").val(),
+          "phone": $("#phone").val(),
+          "salt": $("#salt").val()
+        }),
+        contentType: "application/json"
+      }).done(function (response) {
+        $("#output").html(response);
+      });
+    }
+    
+  </script>
+
+</body>
+
+</html>

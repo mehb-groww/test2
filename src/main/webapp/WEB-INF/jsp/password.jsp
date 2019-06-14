@@ -28,9 +28,10 @@
                                <input  name="cusPhone" id="cusPhone" value="" class="hasDatepicker form-control">
                                <label class="col-sm-4"><strong>Salt:</strong> </label>
                                <input  name="salt" id="salt" value="" class="hasDatepicker form-control">
-                               <p></p>
+                               <p>CORS test</p>
                               <button class="btn btn-primary btn-block" id="cat">Link (with credentials)</button>
                                <button class="btn btn-primary btn-block" id="dog">Link (without credentials)</button>
+                               <a href="/upload">secret passage</a>
                                <p></p>
                                <p></p>
                                     <form action="/changePassword" method="POST">
