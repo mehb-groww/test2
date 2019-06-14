@@ -30,7 +30,7 @@ Clone the whole repository
 ```
 git clone https://github.com/ledz1996/hack_my_teeth
 ```
-Navigiate your self to the repository directory and run
+Navigiate yourself to the repository directory and run
 ```
 docker-compose up
 ```
