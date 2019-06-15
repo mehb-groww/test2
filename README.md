@@ -19,7 +19,7 @@ Docker CE > 18.06
 ## How to run
 
 To run the whole thing,
-Please make sure that __port 80 is available on your machine__ and __Docker (CE version > 18.06) are installed___\
+Please make sure that __port 80 is available on your machine__ and __Docker (CE version > 18.06) are installed__
 
 Add the following entries to your __host__ file:
 ```
