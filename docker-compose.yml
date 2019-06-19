@@ -37,5 +37,3 @@ services:
    depends_on:
       - flask
       - app
-   volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
