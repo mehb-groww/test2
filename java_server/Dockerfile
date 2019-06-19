@@ -5,3 +5,4 @@ ADD pom.xml /root/hack_my_teeth/
 RUN mvn verify clean --fail-never
 ADD . /root/hack_my_teeth
 RUN mvn -Dmaven.test.skip=true install 
+CMD ['bash','./wait_for_db.sh']
