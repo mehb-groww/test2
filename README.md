@@ -4,7 +4,7 @@
 
 A Java Web App using Spring framework, the repository contains:
  - Java Spring Application source code with Maven as package management
- - MySQL dumped data
+ - MySQL dumped data in a sql file
 
 ## TODO
 
