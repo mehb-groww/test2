@@ -25,16 +25,11 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
 		switch (securitySettings.getResetPassword()) {
 		case True:
-			//System.out.println("WEIJRPLKWJERKJWER-erthkertjherwerkter\n\n\n\n");
 			userService.resetAllPassword();
 			break;
 		case False:
-			//System.out.println("NO EXECUTE-erthkertjherwerkter\n\n\n\n");
-
 			break;
 		default:
-			//System.out.println("NO EXECUTE DEFAULT-erthkertjherwerkter\n\n\n\n");
-
 			break;
 	}
 	

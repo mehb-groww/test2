@@ -12,8 +12,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.db
-    volumes:
-      - ./mysql_dump:/docker-entrypoint-initdb.d
   flask:
     container_name: hackteeth_api
     build:

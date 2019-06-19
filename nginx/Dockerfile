@@ -1,8 +1,6 @@
 FROM nginx:latest
 
-RUN apt-get -y update
-RUN apt-get -y install net-tools
-RUN apt-get -y install tcpdump
+ADD ./conf.d/app.conf /etc/nginx/conf.d/
 
 EXPOSE 80 443
 

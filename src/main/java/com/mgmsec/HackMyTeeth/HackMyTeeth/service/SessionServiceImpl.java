@@ -47,7 +47,6 @@ public class SessionServiceImpl implements SessionService {
 		// TODO Auto-generated method stub
 		Cookie loginCookie = null;
 		Cookie[] cookies = request.getCookies();
-		System.out.println("LIST OF COOKIES: " + cookies);
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("SESSIONCOOKIE"))
@@ -55,7 +54,6 @@ public class SessionServiceImpl implements SessionService {
                 		break;
             }
         }
-        System.out.println("THE FUCKING COOKIE IS:" + loginCookie);
 		return loginCookie;
 	}
 	
@@ -66,15 +64,13 @@ public class SessionServiceImpl implements SessionService {
 		if(cookieID.equalsIgnoreCase("")) {
 			switch (secSettings.getUseCookie()) {
 				case Base64:
-				    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
-				    Date date = new Date();  
-				    String tobeEncode = Integer.toString(userID) + "|" + username + "|" + formatter.format(date);
+					SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+					Date date = new Date();  
+					String tobeEncode = Integer.toString(userID) + "|" + username + "|" + formatter.format(date);
 					cookieID = java.util.Base64.getEncoder().encodeToString(tobeEncode.getBytes());
-					
 					break;
 				case Secure:
 					cookieID = random64char();
-					
 					break;
 				}
 		}

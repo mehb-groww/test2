@@ -43,15 +43,12 @@ public class LoginController {
 	public ModelAndView firstPage(Model model, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
 		Cookie loginCookie = sessService.checkLoginCookie(request);
-		System.out.println(secSettings.getPwBruteForce());
 		if (loginCookie != null) {
 			Session session = sessService.findBySession(loginCookie.getValue());
 			if (session != null) return new ModelAndView("redirect:/home");
 		}
-		System.out.println(secSettings.getPwBruteForce());
 		switch (secSettings.getPwBruteForce()){
 			case Captcha:
-				System.out.println("dsdsds");
 					model.addAttribute("isCaptchaEnabled",true);
 					break;
 				default:
@@ -66,12 +63,9 @@ public class LoginController {
 	}
 	@RequestMapping("/home")
 	public ModelAndView home(HttpServletRequest request) {
-		System.out.println(secSettings.getCsrfProtection()+"))))))))))))))))");
 		ModelAndView modelAndView = new ModelAndView();
 		List<User> listDentist = userService.listDentist();
-		System.out.println(listDentist);
 		for (User e: listDentist) {
-				System.out.println(e.toString());
 			}
 		modelAndView.addObject("listDentist",listDentist);
 		try {
@@ -96,15 +90,11 @@ public class LoginController {
 		Cookie loginCookie = sessService.checkLoginCookie(request);
 		if(loginCookie != null) {
 			
-			System.out.println("Login Cookie is: " +loginCookie.getValue());
 			Session sessions = sessService.findBySession(loginCookie.getValue());
 			if (sessions != null) {
-				System.out.println("session is" + sessions);
 				if (sessions.getRole()==1) {
 					List<Appointment> listapp = appService.findAll(sessions.getUsername());
-					System.out.println(listapp);
 					for (Appointment e: listapp) {
-						System.out.println(e.toString());
 					}
 					switch(secSettings.getXssProtection()) {
 		            case Yes:
@@ -114,7 +104,6 @@ public class LoginController {
 		                break;
 		        }
 					modelAndView.addObject("lastBooking",listapp.get(listapp.size()-1).getDescription());
-					System.out.println(listapp.get(listapp.size()-1).getDescription());
 					modelAndView.addObject("listapp",listapp);
 					modelAndView.addObject("role",sessions.getRole());
 					modelAndView.addObject("username",sessions.getUsername());
@@ -162,7 +151,6 @@ public class LoginController {
 		switch (secSettings.getPwBruteForce()){
 			case Captcha:
 				model.addAttribute("isCaptchaEnabled",true);
-				System.out.println(g_recaptcha_response  +  "---------------");
 				if(!capchaService.verifyResponse(g_recaptcha_response, ip)) {
 					modelAndView.addObject("errorMessage", "Check your captcha");
 					modelAndView.setViewName("login");
@@ -173,7 +161,6 @@ public class LoginController {
 			default:
 				break;
 		}
-		System.out.println(password);
 		List<User> get = userService.findByUser(username, password);
 		
 		System.out.print(get);
@@ -250,7 +237,6 @@ public class LoginController {
 		} else if (reUser.equals(s1)) {
 			return new ModelAndView("redirect:/home");
 		} else if (reUser.equals(s2)) {
-			
 		}
 		return modelAndView;
 	}

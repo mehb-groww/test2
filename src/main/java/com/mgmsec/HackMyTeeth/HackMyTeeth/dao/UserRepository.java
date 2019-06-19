@@ -71,7 +71,6 @@ public class UserRepository {
         List<User> result = jdbcTemplate.query("SELECT * FROM user WHERE username='" + username + "' and password='" + password + "'",
                 (rs, rowNum) -> new User(rs.getLong("userID"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"), rs.getString("username"), rs.getString("password"), rs.getString("role"),rs.getString("salt"))
         );
-        System.out.println(result);
         String s1 = "0";
         String s2 = "1";
         if (result.isEmpty()) {
@@ -165,7 +164,6 @@ public class UserRepository {
     
 	public void resetAllPassword(List<String> passwords) {
 		try {
-            System.out.println("asdasdsadas" + passwords);
 			int id = 1; 
 			for(String password: passwords) {
 				jdbcTemplate.update("UPDATE user SET password = ? WHERE userID = ?",

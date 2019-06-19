@@ -14,6 +14,5 @@ public class HackMyTeethApplication {
 		SpringApplication.run(HackMyTeethApplication.class, args);
 	}
 	
-	
 }
 		

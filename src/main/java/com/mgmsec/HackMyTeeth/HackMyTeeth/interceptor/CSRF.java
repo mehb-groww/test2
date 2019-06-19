@@ -31,11 +31,9 @@ public class CSRF implements HandlerInterceptor{
 				// Create csrf token
 				if (_csrf == null || _csrf.isEmpty()) {
 					_csrf = passwordService.getRandomString(16);
-					
 					httpSession.setAttribute("_csrf", _csrf);
 	
 				}
-				System.out.println(_csrf);
 				request.setAttribute("_csrfToken", _csrf);
 	
 			}

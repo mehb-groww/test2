@@ -22,7 +22,6 @@ public class XssService {
             StringBuffer writer = new StringBuffer((int)
                     (str.length() * 1.5));
             escape(writer, str);
-            System.out.println("encoded string is " + writer.toString());
             return writer.toString();
         } catch (Exception ioe) {
             ioe.printStackTrace();

@@ -37,7 +37,6 @@ public class CapchaSeviceImpl implements CapchaService {
                         body, Map.class, body);
 
         Map<String, Object> responseBody = recaptchaResponseEntity.getBody();
-        System.out.println(responseBody);
         boolean recaptchaSucess = (Boolean)responseBody.get("success");
         return recaptchaSucess;
     }

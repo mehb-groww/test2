@@ -45,7 +45,6 @@ public class UserController {
 		public ModelAndView changePage(Model model, HttpServletRequest request) {
 			ModelAndView modelAndView = new ModelAndView();
 			Cookie loginCookie = sessService.checkLoginCookie(request);
-			System.out.println(secSettings.getPwBruteForce());
 			String param = request.getParameter("errorMessage");
 			if(param != null) {
 				modelAndView.addObject("errorMessage",param);
@@ -66,7 +65,6 @@ public class UserController {
 		public ModelAndView changeRequest(Model model, HttpServletRequest request) {
 			ModelAndView modelAndView = new ModelAndView();
 			Cookie loginCookie = sessService.checkLoginCookie(request);
-			System.out.println(secSettings.getPwBruteForce());
 			int userID = -999;
 			String username ="";
 			if (loginCookie != null) {
@@ -78,7 +76,6 @@ public class UserController {
 			
 			String password = request.getParameter("password");
 			String password1 = request.getParameter("password1");
-			System.out.println(password + "///" + password1);
 			if(password.equals(password1)) {
 				switch(secSettings.getPwdStorage()) {
 					case Clear:

@@ -53,19 +53,15 @@ public class SearchController {
 			    }
 
 				List<User> listDentist = userService.searchDentist(key);
-				System.out.println(listDentist);
 				for (User e: listDentist) {
-					System.out.println(e.toString());
 				}
 				
 				
 				modelAndView.addObject("listDentist",listDentist);
-				System.out.println("12345");
 				if (key == null || key.length() == 0) {
 					String all ="all dentists";
 					modelAndView.addObject("keyword",all);
 				}
-				System.out.println("678910");
 				modelAndView.addObject("keyword",key);
 				modelAndView.setViewName("search");
 				return modelAndView;

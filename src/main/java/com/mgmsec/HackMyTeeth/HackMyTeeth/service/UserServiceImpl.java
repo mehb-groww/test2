@@ -68,11 +68,9 @@ public class UserServiceImpl implements UserService {
 		try {
 			List<String> passwords = passwordService.setPasswords();
 			List<String> hashedPasswords = new ArrayList<>();
-			System.out.println(securitySettings.getPwdStorage());
 			switch (securitySettings.getPwdStorage()) {
 				case Clear:
 					userRepository.resetAllPassword(passwords);
-					
 					break;
 					
 				case Hashed:
@@ -80,7 +78,6 @@ public class UserServiceImpl implements UserService {
 						hashedPasswords.add(passwordService.sha256(item));
 					}
 					userRepository.resetAllPassword(hashedPasswords);
-					
 					break;			
 				
 				case PBKDF:

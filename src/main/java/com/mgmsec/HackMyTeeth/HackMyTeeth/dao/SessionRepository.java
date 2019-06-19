@@ -19,7 +19,6 @@ public class SessionRepository {
     	try {
     		List <Session> result= jdbcTemplate.query("SELECT * FROM session WHERE userID=?",
 					(rs, rowNum) -> new Session(rs.getLong("userID"), rs.getString("sessCookie"),rs.getString("username"),rs.getInt("role")), Integer.toString(userID));
-    		System.out.println("THE FUCKING RESULT IS:" + result);
     		
     		return result;
     	}catch(Exception e) {
@@ -30,7 +29,6 @@ public class SessionRepository {
     public boolean createNewCookie(int userID,String username, int role, String cookieid) {
     	try {
     		List<Session> result = this.findByID(userID);
-    		System.out.println(result.size());
     		if(result != null && (result.size() > 0)) {
     			try {
     				jdbcTemplate.update("UPDATE session SET role=?, sessCookie=? where userID=?;",Integer.toString(role),cookieid,Integer.toString(userID));
@@ -75,8 +73,6 @@ public class SessionRepository {
     	try {
     		List <Session> result= jdbcTemplate.query("SELECT * FROM session WHERE sessCookie=?",
 					(rs, rowNum) -> new Session(rs.getLong("userID"), rs.getString("sessCookie"),rs.getString("username"),rs.getInt("role")), cookieID);
-    		System.out.println(result);
-    		
     		return result;
     	}catch(Exception e) {
     		e.printStackTrace();

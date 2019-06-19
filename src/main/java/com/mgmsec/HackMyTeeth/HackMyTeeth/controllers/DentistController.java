@@ -47,7 +47,6 @@ public class DentistController {
         ModelAndView modelAndView = new ModelAndView();
         Cookie loginCookie = sessService.checkLoginCookie(request);
         if(loginCookie != null) {
-            System.out.println("Login Cookie is: in dentist " +loginCookie.getValue());
 
             Session sessions = sessService.findBySession(loginCookie.getValue());
             if (sessions != null) {
@@ -57,7 +56,6 @@ public class DentistController {
                     return new ModelAndView("redirect:/home");
                 }
                 User dentist = userService.getDentistById(id, secSettings.getSqli());
-                System.out.println(userService.getDentistById(id, secSettings.getSqli()));
                 modelAndView.addObject("dentist", dentist);
                 modelAndView.addObject("role",sessions.getRole());
                 modelAndView.addObject("username",sessions.getUsername());
@@ -82,7 +80,6 @@ public class DentistController {
         String title = request.getParameter("title");
         String date = request.getParameter("datebook");
         String des  = request.getParameter("description");
-        System.out.println("--------------: " + des);
         Cookie loginCookie = sessService.checkLoginCookie(request);
         Session sessions = sessService.findBySession(loginCookie.getValue());
         int denId  = Integer.parseInt(request.getParameter("id"));
@@ -93,10 +90,6 @@ public class DentistController {
         appointment.setCusID((int) sessions.getUserID());
         appointment.setDenID(denId);
         boolean result = appointmentService.insertAppointment(appointment);
-        System.out.println("---------------");
-        System.out.println(result);
-        System.out.println(appointment.toString());
-        System.out.println("---------------");
 
         if (!result) {
             modelAndView.addObject("errormsg", "Can not booking");
