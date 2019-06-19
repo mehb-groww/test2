@@ -10,8 +10,8 @@ services:
     ports:
       - 3306:3306
     build: 
-      context: .
-      dockerfile: Dockerfile.db
+      context: ./mysql_server
+      dockerfile: Dockerfile
   flask:
     container_name: hackteeth_api
     build:
