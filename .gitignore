@@ -1,9 +1,7 @@
-/target/
-/.settings/
-/target/classes/application.properties
-/.idea
-docker-compose.yml
+**/target
+**/.settings
+**/.idea
+**/.vscode
 src/main/resources/*
 src/main/resources/application.properties
 **/.DS_Store
-
