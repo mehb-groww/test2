@@ -25,6 +25,9 @@ services:
     build:
       context: ./java_server
       dockerfile: Dockerfile
+      args:
+        DB_ADDRESS: hackteeth_db
+        DB_PORT: 3306
     depends_on:
       - db
     command: "bash ./wait_for_db.sh"

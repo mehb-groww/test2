@@ -1,8 +1,10 @@
-FROM maven:3.5.3-jdk-8 as maven
+FROM maven:3.6.1-jdk-8
+ARG DB_ADDRESS
+ARG DB_PORT
 RUN mkdir --parents /root/hack_my_teeth
 WORKDIR /root/hack_my_teeth
-ADD pom.xml /root/hack_my_teeth/
-RUN mvn clean --fail-never
-ADD . /root/hack_my_teeth
+ADD . ./
+RUN sh ./modified_db.sh
+RUN mvn clean -fn
 RUN mvn -Dmaven.test.skip=true install 
 CMD ['bash','./wait_for_db.sh']
